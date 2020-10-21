@@ -4,7 +4,7 @@ Here you can find the .gitconfig file I use at work :). Hope it helps you!
 ```sh
 [user]
 	name = Eduard Bargues
-	email = myemail@mycompany.com
+	email = ebargues@ohpen.com
 [alias]
 	; REBASE
 	ra = rebase --abort
@@ -26,7 +26,7 @@ Here you can find the .gitconfig file I use at work :). Hope it helps you!
 	c-break = "!git c break:\"$1\""
 	c-feat = "!git c feat:\"$1\""
 	c-fix = "!git c fix:\"$1\""
-	c = "!f(){ git commit -a -m \"$1\" }; f"
+	c = "!f(){ git commit -a -m \"$1\"; }; f"
 	; LOG
 	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	; PUSH
@@ -38,6 +38,7 @@ Here you can find the .gitconfig file I use at work :). Hope it helps you!
 	esc = config --system -e
     ; TRAILERS
     thanks-to = "!git trailer-add Co-authored-by"
+    requested-by ="!git trailer-add Requested-by"
     reported-by = "!git trailer-add Reported-by"
     tested-by = "!git trailer-add Tested-by"
     trailer-add = "!f(){ GIT_EDITOR=\"git interpret-trailers --trailer='$1: $2' --in-place\" git commit --amend; }; f"
