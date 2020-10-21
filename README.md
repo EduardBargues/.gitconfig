@@ -4,7 +4,7 @@ Here you can find the .gitconfig file I use at work :). Hope it helps you!
 ```sh
 [user]
 	name = Eduard Bargues
-	email = ebargues@ohpen.com
+	email = myemail@mycompany.com
 [alias]
 	; REBASE
 	ra = rebase --abort
