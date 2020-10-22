@@ -12,21 +12,25 @@ Here you can find the .gitconfig file I use at work :). Hope it helps you!
 	r-dev = "!git r dev"
 	r-develop = "!git r develop"
 	r-master = "!git r master"
-	r = "!f(){ git fe; git rebase -i origin/\"$1\"; }; f"
+	r = "!f(){ git fetch; git rebase -i --autosquash origin/\"$1\"; }; f"
 	; CHECKOUT
-	coh = "!f(){ git co hotfix \"$1\"; }; f"
-	cob = "!f(){ git co bugfix \"$1\"; }; f"
-	cof = "!f(){ git co feature \"$1\"; }; f"
-	co = "!f(){ git checkout -b \"$1/$2\"; }; f"
+	cob-hot = "!f(){ git cob hotfix/\"$1\"; }; f"
+	cob-bug = "!f(){ git cob bugfix/\"$1\"; }; f"
+	cob-feat = "!f(){ git cob feature/\"$1\"; }; f"
+	co-dev = checkout dev
+	co-develop = checkout develop
+	co-master = checkout dev
+	co = "!f(){ git checkout \"$1\"; }; f"
+	cob = "!f(){ git checkout -b \"$1\"; }; f"
 	br = branch
 	; COMMIT
 	cp = cherry-pick
-	cam = commit -a -m
-	c-fixup = "!f() { git commit --fixup \"$(git rev-parse HEAD)\"}; f" 
+	cam = commit -m
+	c-fixup = "!f() { git add .; git commit --fixup \"$(git rev-parse HEAD)\"; }; f" 
 	c-break = "!git c break:\"$1\""
 	c-feat = "!git c feat:\"$1\""
 	c-fix = "!git c fix:\"$1\""
-	c = "!f(){ git commit -a -m \"$1\"; }; f"
+	c = "!f(){ git add .; git commit -m \"$1\"; }; f"
 	; LOG
 	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	; PUSH
